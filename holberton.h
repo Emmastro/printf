@@ -22,7 +22,7 @@ int print_octal(va_list arg);
 typedef struct identifierStruct
 {
 char *indentifier;
-void (*printer)(va_list);
+int (*printer)(va_list);
 } identifierStruct;
 
 #endif
