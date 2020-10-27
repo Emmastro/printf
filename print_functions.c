@@ -8,9 +8,9 @@
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int print_char(char c)
+int print_char(va_list arg)
 {
-	return (write(1, &c, 1));
+	return (_putchar(va_arg(arg, int)));
 }
 
 /**

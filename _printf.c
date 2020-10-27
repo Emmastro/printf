@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include "funct_array.h"
 
 /**
  * _printf - mimic printf from stdio
@@ -13,35 +14,67 @@
 int _printf(const char *format, ...)
 {
 	char *current; /*current character from format being processed*/
-	unsigned int i, charPrinted;
-	char *s;
-
-	identifierStruct identifier[] = {
-		{'c', print_char},
-		{'i', print_int}
-	};
-
+	unsigned int i;
+	int count = 0;
 	va_list arg;
+	
 	va_start(arg, format);
+	
+	if (format == NULL)
+		return (-1)
 
-	for(current = format; *current != '\0'; current++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		while( *current != '%' )
+		if (format[i] =! '%')
 		{
-			_putchar(*current);
-			current++;
-			charPrinted++;
+			count += _putchar(format[i]);
+			continue;
 		}
-
-		current++;
-
-		/*
-		Loop over the identifier list
-		Check if the `current` char is on identifier
-			If so, call its printer function (indentifier.printer) with arg as argument
-		
-		*/
+		switch (format[++i])
+		{
+		case '%':
+			count += _putchar('%');
+			break;
+		case 'c':
+		case 's':
+		case 'd':
+		case 'i':
+		case 'u':
+		case 'o':
+			count += call_print_char(format[i], arg);
+			break;
+		default:
+			if (!format[i])
+				return (-1);
+			count += _putchar('%');
+			count += _putchar(format[i]);
+			break;
+		}
 	}
-
 	va_end(arg);
+	return (count);
+}
+
+
+
+
+/**
+ * call_print_char - function to call number of characters printed
+ * @ch - format string character
+ * @arg - object to be printed
+ * Return - number of characters printed
+ */
+int call_print_char(char ch, va_list arg)
+{
+	int j;
+	int charPrinted = 0;
+	for (j = 0; funcs[j].identifier != NULL; j++)
+	{
+		if (ch == funcs[j].identifier[0])
+		{
+			charPrinted += funcs[j].printer(arg);
+			break;
+		}
+	}
+	return (charPrinted);
 }
