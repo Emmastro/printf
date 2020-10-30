@@ -17,11 +17,8 @@ int _printf(const char *format, ...)
 	va_list arg;
 
 	identifierStruct functs[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"d", print_int},
-		{"i", print_int},
-		{"%", print_percent},
+		{"c", print_char}, {"s", print_str},
+		{"d", print_int}, {"i", print_int},
 		{NULL, NULL}
 	};
 
@@ -38,6 +35,12 @@ int _printf(const char *format, ...)
 			charPrinted++;
 			continue;
 		}
+		if (format[i + 1] == '%')
+		{
+			_putchar('%');
+			charPrinted++;
+			continue;
+		}
 		i++;
 		for (j = 0; functs[j].indentifier != NULL; j++)
 		{
@@ -49,6 +52,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(arg);
-
 	return (charPrinted);
 }

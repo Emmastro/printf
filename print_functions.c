@@ -60,14 +60,3 @@ for (i = 0; str[i]; i++)
 
 return (0);
 }
-
-/**
- * print_percent - prints a string.
- * Return: 0
- */
-
-int print_percent(void)
-{
-	_putchar('%');
-	return (0);
-}
