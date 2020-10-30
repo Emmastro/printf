@@ -44,11 +44,19 @@ return (0);
 
 int print_str(va_list arg)
 {
+int i;
 char *str = va_arg(arg, char*);
 
-while (++*str)
+for (i = 0; str[i]; i++)
 {
-	_putchar(*str);
+	_putchar(str[i]);
 }
+
 return (0);
+}
+
+int print_percent(void)
+{
+	_putchar('%');
+	return (0);
 }

@@ -24,6 +24,7 @@ int _printf(const char *format, ...)
 		{"s", print_str},
 		{"d", print_int},
 		{"i", print_int},
+		{"%", print_percent},
 		//{"u", print_unsigned},
 		//{"o", print_octal},
 		{NULL, NULL}
