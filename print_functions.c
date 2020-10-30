@@ -46,7 +46,7 @@ int print_str(va_list arg)
 {
 char *str = va_arg(arg, char*);
 
-while (*str++)
+while (++*str)
 {
 	_putchar(*str);
 }
