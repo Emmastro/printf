@@ -19,11 +19,10 @@ int _printf(const char *format, ...)
 	identifierStruct functs[] = {
 		{"c", print_char}, {"s", print_str},
 		{"d", print_int}, {"i", print_int},
-		{NULL, NULL}
+		{"u", print_unsigned}, {NULL, NULL}
 	};
 
 	va_start(arg, format);
-
 	if (format == NULL)
 		return (-1);
 

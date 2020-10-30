@@ -1,6 +1,6 @@
 #include <limits.h>
 #include <stdio.h>
-#include "holberton.h"
+#include "../holberton.h"
 
 /**
  * main - Entry point

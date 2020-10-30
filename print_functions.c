@@ -60,3 +60,25 @@ for (i = 0; str[i]; i++)
 
 return (0);
 }
+
+/**
+ * print_unsigned - prints an unsigned int.
+ * @arg: argument
+ * Return: 0
+ */
+
+int print_unsigned(va_list arg)
+{
+int divisor = 1, i, resp;
+int n = va_arg(arg, unsigned int);
+
+for (i = 0; n / divisor > 9; i++, divisor *= 10)
+;
+
+for (; divisor >= 1; n %= divisor, divisor /= 10)
+{
+	resp = n / divisor;
+	_putchar('0' + resp);
+}
+return (0);
+}
