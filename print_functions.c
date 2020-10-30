@@ -18,7 +18,7 @@ int print_char(va_list arg)
  * @n: integer
  */
 
-void print_int(va_list arg)
+int print_int(va_list arg)
 {
 
 int divisor = 1, i, resp, n;
@@ -27,7 +27,7 @@ n = va_arg(arg,int);
 
 if (n < 0)
 {
-	print_char('-');
+	_putchar('-');
 	n *= -1;
 }
 
@@ -37,8 +37,18 @@ for (i = 0; n / divisor > 9; i++, divisor *= 10)
 for (; divisor >= 1; n %= divisor, divisor /= 10)
 {
 	resp = n / divisor;
-	print_char('0' + resp);
-
+	_putchar('0' + resp);
+}
+return (0);
 }
 
+int print_str(va_list arg)
+{
+char *str = va_arg(arg, char*);
+
+while (*str++)
+{
+	_putchar(*str);
+}
+return (0);
 }
