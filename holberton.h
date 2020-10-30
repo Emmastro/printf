@@ -8,14 +8,11 @@ int print_int(va_list arg);
 int _printf(const char *format, ...);
 int print_char(va_list arg);
 int print_str(va_list arg);
-int print_percent();
-//int print_unsigned(va_list arg);
-//int print_octal(va_list arg);
-
+int print_percent(void);
 
 /**
- * struct printTypeStruct - structure definition of a printTypeStruct
- * @type: type
+ * struct identifierStruct - structure definition of a printTypeStruct
+ * @indentifier: type
  * @printer: function to print
  */
 typedef struct identifierStruct
