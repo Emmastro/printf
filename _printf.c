@@ -14,9 +14,7 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i;
-	int j;
-	int charPrinted = 0;
+	unsigned int i, j, charPrinted = 0;
 	va_list arg;
 
 	identifierStruct functs[] = {
@@ -25,8 +23,6 @@ int _printf(const char *format, ...)
 		{"d", print_int},
 		{"i", print_int},
 		{"%", print_percent},
-		//{"u", print_unsigned},
-		//{"o", print_octal},
 		{NULL, NULL}
 	};
 

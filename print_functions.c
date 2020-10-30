@@ -3,7 +3,7 @@
 
 /**
  * print_char - writes the character c to stdout
- * @c: The character to print
+ * @arg: argument
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
@@ -15,15 +15,15 @@ int print_char(va_list arg)
 
 /**
  * print_int - prints an integer.
- * @n: integer
+ * @arg: argument
+ * Return: 0
  */
 
 int print_int(va_list arg)
 {
 
-int divisor = 1, i, resp, n;
-
-n = va_arg(arg,int);
+int divisor = 1, i, resp;
+int n = va_arg(arg, int);
 
 if (n < 0)
 {
@@ -42,6 +42,12 @@ for (; divisor >= 1; n %= divisor, divisor /= 10)
 return (0);
 }
 
+/**
+ * print_str - prints a string.
+ * @arg: argument
+ * Return: 0
+ */
+
 int print_str(va_list arg)
 {
 int i;
@@ -54,6 +60,11 @@ for (i = 0; str[i]; i++)
 
 return (0);
 }
+
+/**
+ * print_percent - prints a string.
+ * Return: 0
+ */
 
 int print_percent(void)
 {
