@@ -74,7 +74,7 @@ int _printf(const char *format, ...)
 			return (-1);
 
 		identifierPrinted = printIdentifiers(format[i + 1], arg);
-		if (identifierPrinted > -1)
+		if (identifierPrinted > -1 && identifierPrinted != 0)
 			i++;
 		if (identifierPrinted > 0)
 			charPrinted += identifierPrinted;
