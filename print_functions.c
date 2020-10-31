@@ -52,7 +52,11 @@ return (charPrinted);
 int print_str(va_list arg)
 {
 int i;
+
 char *str = va_arg(arg, char*);
+
+if (str == (char *)0)
+	str = "(nill)";
 
 for (i = 0; str[i]; i++)
 	_putchar(str[i]);
