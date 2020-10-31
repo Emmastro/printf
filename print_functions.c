@@ -56,7 +56,7 @@ int i;
 char *str = va_arg(arg, char*);
 
 if (str == (char *)0)
-	str = "(nill)";
+	str = "(null)";
 else if (*str == '\0')
 	return (-1);
 
