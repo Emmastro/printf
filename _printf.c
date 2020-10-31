@@ -42,6 +42,7 @@ int printIdentifiers(char next, va_list arg)
  *
  * Return: the number of characters printed
  * (excluding the null byte used to end output to strings)
+ * return -1 for incomplete identifier error
  */
 
 int _printf(const char *format, ...)
@@ -69,16 +70,16 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
+		if (format[i + 1] == '\0')
+			return (-1);
 
 		identifierPrinted = printIdentifiers(format[i + 1], arg);
+		if (identifierPrinted > -1)
+			i++;
 		if (identifierPrinted > 0)
-		{
 			charPrinted += identifierPrinted;
-			i++;
-		}
-		else if (identifierPrinted == -1)
-			i++;
-		else
+
+		if (identifierPrinted == 0)
 		{
 			_putchar('%');
 			charPrinted++;
