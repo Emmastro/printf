@@ -45,10 +45,7 @@ int _printf(const char *format, ...)
 		for (j = 0; functs[j].indentifier != NULL; j++)
 		{
 			if (functs[j].indentifier[0] == format[i])
-			{
-				functs[j].printer(arg);
-				charPrinted++;
-			}
+				charPrinted += functs[j].printer(arg);
 		}
 	}
 	va_end(arg);

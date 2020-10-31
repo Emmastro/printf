@@ -22,30 +22,31 @@ int print_char(va_list arg)
 int print_int(va_list arg)
 {
 
-int divisor = 1, i, resp;
+int divisor = 1, i, resp, charPrinted = 0;
 int n = va_arg(arg, int);
 
 if (n < 0)
 {
 	_putchar('-');
+	charPrinted++;
 	n *= -1;
 }
 
 for (i = 0; n / divisor > 9; i++, divisor *= 10)
 ;
 
-for (; divisor >= 1; n %= divisor, divisor /= 10)
+for (; divisor >= 1; n %= divisor, divisor /= 10, charPrinted++)
 {
 	resp = n / divisor;
 	_putchar('0' + resp);
 }
-return (0);
+return (charPrinted);
 }
 
 /**
  * print_str - prints a string.
  * @arg: argument
- * Return: 0
+ * Return: number of character printed
  */
 
 int print_str(va_list arg)
@@ -54,11 +55,9 @@ int i;
 char *str = va_arg(arg, char*);
 
 for (i = 0; str[i]; i++)
-{
 	_putchar(str[i]);
-}
 
-return (0);
+return (i);
 }
 
 /**
@@ -80,5 +79,5 @@ for (; divisor >= 1; n %= divisor, divisor /= 10)
 	resp = n / divisor;
 	_putchar('0' + resp);
 }
-return (0);
+return (i);
 }
