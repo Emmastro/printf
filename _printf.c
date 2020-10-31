@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 
 /**
  * printIdentifiers - prints special characters
@@ -12,7 +12,7 @@
 
 int printIdentifiers(char next, va_list arg)
 {
-	int functsIndex, charPrinted = 0;
+	int functsIndex;
 
 	identifierStruct functs[] = {
 		{"c", print_char},
@@ -26,10 +26,7 @@ int printIdentifiers(char next, va_list arg)
 	for (functsIndex = 0; functs[functsIndex].indentifier != NULL; functsIndex++)
 	{
 		if (functs[functsIndex].indentifier[0] == next)
-		{
-			charPrinted += functs[functsIndex].printer(arg);
-			return (charPrinted);
-		}
+			return (functs[functsIndex].printer(arg));
 	}
 	return (0);
 }
@@ -74,7 +71,8 @@ int _printf(const char *format, ...)
 			return (-1);
 
 		identifierPrinted = printIdentifiers(format[i + 1], arg);
-		if (identifierPrinted > -1 && identifierPrinted != 0)
+		
+		if (identifierPrinted > -1 || identifierPrinted != 0)
 			i++;
 		if (identifierPrinted > 0)
 			charPrinted += identifierPrinted;
