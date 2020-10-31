@@ -57,6 +57,8 @@ char *str = va_arg(arg, char*);
 
 if (str == (char *)0)
 	str = "(nill)";
+else if (*str == '\0')
+	return (-1);
 
 for (i = 0; str[i]; i++)
 	_putchar(str[i]);

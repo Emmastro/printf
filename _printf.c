@@ -76,6 +76,8 @@ int _printf(const char *format, ...)
 			charPrinted += identifierPrinted;
 			i++;
 		}
+		else if (identifierPrinted == -1)
+			i++;
 		else
 		{
 			_putchar('%');
