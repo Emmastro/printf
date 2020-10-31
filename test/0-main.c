@@ -15,8 +15,8 @@ int main(void)
 	void *addr;
 
 
-	len = _printf("%s", "This sentence is retrieved from va_args!\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
+	len = _printf("%K\n");
+	len2 = printf("%K\n");
 	ui = (unsigned int)INT_MAX + 1024;
 	addr = (void *)0x7ffe637541f0;
 	_printf("Length:[%d, %i]\n", len, len);
