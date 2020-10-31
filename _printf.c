@@ -4,14 +4,13 @@
 
 /**
  * printIdentifiers - prints special characters
- * @format: character string composed of zero or more directives
- * @formatIndex: index for format from the _printf function
+ * @next: character after the %
  * @arg: argument for the indentifier
  * Return: the number of characters printed
  * (excluding the null byte used to end output to strings)
  */
 
-int printIdentifiers(const char *format, int formatIndex, va_list arg)
+int printIdentifiers(char next, va_list arg)
 {
 	int functsIndex, charPrinted = 0;
 
@@ -26,14 +25,13 @@ int printIdentifiers(const char *format, int formatIndex, va_list arg)
 
 	for (functsIndex = 0; functs[functsIndex].indentifier != NULL; functsIndex++)
 	{
-		if (functs[functsIndex].indentifier[0] == format[formatIndex])
+		if (functs[functsIndex].indentifier[0] == next)
 		{
 			charPrinted += functs[functsIndex].printer(arg);
-			formatIndex++;
+			return (charPrinted);
 		}
 	}
-
-	return (charPrinted);
+	return (0);
 }
 
 /**
@@ -71,12 +69,12 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
-		identifierPrinted = printIdentifiers(format, i, arg);
 
+		identifierPrinted = printIdentifiers(format[i + 1], arg);
 		if (identifierPrinted > 0)
 		{
-			i++;
 			charPrinted += identifierPrinted;
+			i++;
 		}
 		else
 		{
