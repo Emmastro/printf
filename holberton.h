@@ -12,6 +12,9 @@ int _printf(const char *format, ...);
 int print_char(va_list arg);
 int print_str(va_list arg);
 int print_percent(void);
+int print_hex(char *format, va_list arg);
+int print_HEX(char *format, va_list arg);
+int print_oct(char *format, va_list arg);
 
 /**
  * struct identifierStruct - structure definition of a printTypeStruct
