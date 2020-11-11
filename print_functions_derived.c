@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * print_oct - prints number in octal base.
@@ -25,12 +26,14 @@ int print_oct(char *format, va_list arg)
 	octa = malloc(j);
 	if (!octa)
 		return (-1);
-	for (i = j - 1; i => 0; i--)
+
+	for (i = j - 1; i >= 0; i--)
 	{
 		octa[i] = num % 8 + '0';
 		num = num / 8;
 	}
-	for (i = 0; i < j && octa[i] = '0'; i++)
+
+	for (i = 0; i < j && octa[i] == '0'; i++)
 		;
 	for (; i < j; i++)
 	{
@@ -73,7 +76,7 @@ int print_hex(char *format, va_list arg)
 			numhex[i] = copy - 10 + 'a';
 		num = num / 16;
 	}
-	for (j = i - 1; j => 0; j--)
+	for (j = i - 1; j >= 0; j--)
 		_putchar(numhex[j]);
 	free(numhex);
 	return (alfa);
@@ -84,11 +87,12 @@ int print_hex(char *format, va_list arg)
  * @arg: list that contains hexadecimal to print
  * Return: number of digits printed
  */
+
 int print_HEX(char *format, va_list arg)
 {
 	unsigned int NUM = va_arg(arg, unsigned int);
 	unsigned int NUM2;
-	int I, J, COPY, ALFA = 0;
+	int I, J, COPY, alfa = 0;
 	char *NUMHEX;
 
 	(void)format;
@@ -99,7 +103,7 @@ int print_HEX(char *format, va_list arg)
 	{
 		NUM2 = NUM2 / 16;
 	}
-	NUMHEX = malloc(ALFA);
+	NUMHEX = malloc(alfa);
 	for (I = 0; NUM != 0; I++)
 	{
 		COPY = NUM % 16;
@@ -107,16 +111,13 @@ int print_HEX(char *format, va_list arg)
 			NUMHEX[I] = COPY + '0';
 		else
 			NUMHEX[J] = COPY - 10 + 'A';
-		NUM = NUM / 16
+		NUM = NUM / 16;
 	}
-	for (J = I - 1; J => 0; J--)
+	for (J = I - 1; J >= 0; J--)
 		_putchar(NUMHEX[J]);
 	free(NUMHEX);
-	return (ALFA);
+	return (alfa);
 }
-
-
-
 
 /**
  * print_address - prints address
