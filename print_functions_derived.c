@@ -48,7 +48,7 @@ int print_oct(char *format, va_list arg)
  * Return: number of digits printed
  */
 
-int print_hex(char *format ,va_list arg)
+int print_hex(char *format, va_list arg)
 {
 	unsigned int num = va_arg(arg, unsigned int);
 	unsigned int num2;
@@ -67,7 +67,7 @@ int print_hex(char *format ,va_list arg)
 	for (i = 0; num != 0; i++)
 	{
 		copy = num % 16;
-		if(copy < 10)
+		if (copy < 10)
 			numhex[i] = copy + '0';
 		else
 			numhex[i] = copy - 10 + 'a';
@@ -103,7 +103,7 @@ int print_HEX(char *format, va_list arg)
 	for (I = 0; NUM != 0; I++)
 	{
 		COPY = NUM % 16;
-		if(COPY < 10)
+		if (COPY < 10)
 			NUMHEX[I] = COPY + '0';
 		else
 			NUMHEX[J] = COPY - 10 + 'A';
