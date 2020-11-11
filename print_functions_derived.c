@@ -92,7 +92,7 @@ int print_HEX(char *format, va_list arg)
 {
 	unsigned int NUM = va_arg(arg, unsigned int);
 	unsigned int NUM2;
-	int I, J, COPY, alfa = 0;
+	int I, J = 0, COPY, alfa = 0;
 	char *NUMHEX;
 
 	(void)format;
@@ -119,13 +119,3 @@ int print_HEX(char *format, va_list arg)
 	return (alfa);
 }
 
-/**
- * print_address - prints address
- * @arg: argument
- * Return: 0
- */
-
-int print_address(va_list arg)
-{
-
-}
