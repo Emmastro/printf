@@ -80,4 +80,4 @@ This produces output according to a format specifiers,as shown below.
 
 
 
-It is developed by **Emmanuel** and **Alfaxad** from ALX cohort 0.
+It is developed by **Emmanuel** and **Alfaxad** from **ALX cohort 0.**
