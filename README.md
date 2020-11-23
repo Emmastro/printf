@@ -1,8 +1,9 @@
 # printf
+The project consists of normal functions, derived functions a man page and a README.md file.
 
-This produces output according to a format specifiers,as shoen below.
+This produces output according to a format specifiers,as shown below.
 
-_printf("Length:[%d, %i]\n", len, len);
+       _printf("Length:[%d, %i]\n", len, len);
 
 
 	printf("Length:[%d, %i]\n", len2, len2);
@@ -79,4 +80,4 @@ _printf("Length:[%d, %i]\n", len, len);
 
 
 
-It is developed by Emmanuel and Alfaxad from ALX.
+It is developed by **Emmanuel** and **Alfaxad** from ALX cohort 0.
