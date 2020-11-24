@@ -75,7 +75,7 @@ return (i);
 int print_unsigned(va_list arg)
 {
 int divisor = 1, i, resp;
-int n = va_arg(arg, unsigned int);
+unsigned int n = va_arg(arg, unsigned int);
 
 for (i = 0; n / divisor > 9; i++, divisor *= 10)
 ;
