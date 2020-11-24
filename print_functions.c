@@ -22,7 +22,7 @@ int print_char(va_list arg)
 int print_int(va_list arg)
 {
 
-int divisor = 1, i, resp, charPrinted = 0;
+unsigned int divisor = 1, i, resp, charPrinted = 0;
 int n = va_arg(arg, int);
 
 if (n < 0)
