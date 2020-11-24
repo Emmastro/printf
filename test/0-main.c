@@ -42,5 +42,7 @@ int main(void)
 	_printf("Unknown:[%r]\n");
 	//printf("Unknown:[%r]\n");
 	_printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("%i\n", _printf("%b\n", 2));
+
 	return (0);
 }
