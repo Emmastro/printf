@@ -45,6 +45,9 @@ int main(void)
 	printf("%i\n", _printf("%b\n", -10));
 	_printf("There is %b bytes in %b KB\n", 1024, 1);
 	_printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
+	_printf("%u\n", UINT_MAX);
+	printf("%u\n", UINT_MAX);
+	 _printf("%S\n", "Holberton\nSchool");
 
 	return (0);
 }
