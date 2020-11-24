@@ -21,18 +21,16 @@ return (printed);
 
 /**
  * print_oct - prints number in octal base.
- * @format: format to print octal
  * @arg: list containing octal number to be printed
  * Return: number of octals printed
  */
 
-int print_oct(char *format, va_list arg)
+int print_oct(va_list arg)
 {
 	unsigned int num = va_arg(arg, unsigned int);
 	unsigned int copy;
 	char *octa;
-	int i, j, alfa = 0;
-	(void)format;
+	int i, j, charPrinted = 0;
 
 	if (num == 0)
 		return (_putchar('0'));
@@ -55,84 +53,66 @@ int print_oct(char *format, va_list arg)
 	for (; i < j; i++)
 	{
 		_putchar(octa[i]);
-		alfa++;
+		charPrinted++;
 	}
 	free(octa);
-	return (alfa);
+	return (charPrinted);
 }
 
 /**
- * print_hex - prints number in a hexadecimal base.
- * @format: format to print hexadecimal
+ * print_hex_base - base function for printing hexadecimal numbers
  * @arg: argument list containing hexadecimal
+ * @_case: a  in caps on lower, printing the hex number in caps in lower
  * Return: number of digits printed
  */
 
-int print_hex(char *format, va_list arg)
+int print_hex_base(va_list arg, char _case)
 {
 	unsigned int num = va_arg(arg, unsigned int);
 	unsigned int num2;
-	int i, j, copy, alfa = 0;
+	int i, j, copy, charPrinted = 0;
 	char *numhex;
-
-	(void)format;
 
 	if (num == 0)
 		return (_putchar('0'));
-	for (num2 = num; num2 != 0; alfa++)
+	for (num2 = num; num2 != 0; charPrinted++)
 	{
 		num2 = num2 / 16;
 	}
-	numhex = malloc(alfa);
+	numhex = malloc(charPrinted);
 	for (i = 0; num != 0; i++)
 	{
 		copy = num % 16;
 		if (copy < 10)
 			numhex[i] = copy + '0';
 		else
-			numhex[i] = copy - 10 + 'a';
+			numhex[i] = copy - 10 + _case;
 		num = num / 16;
 	}
 	for (j = i - 1; j >= 0; j--)
 		_putchar(numhex[j]);
 	free(numhex);
-	return (alfa);
+
+	return (charPrinted);
 }
 /**
- * print_HEX - prints a hexadecimal
- * @format: format to print hexadecimal
+ * print_hex - prints a hexadecimal in lower case
  * @arg: list that contains hexadecimal to print
  * Return: number of digits printed
  */
 
-int print_HEX(char *format, va_list arg)
+int print_hex(va_list arg)
 {
-	unsigned int NUM = va_arg(arg, unsigned int);
-	unsigned int NUM2;
-	int I, J = 0, COPY, alfa = 0;
-	char *NUMHEX;
-
-	(void)format;
-
-	if (NUM == 0)
-		return (_putchar('0'));
-	for (NUM2 = NUM; NUM2 != 0; alfa++)
-	{
-		NUM2 = NUM2 / 16;
-	}
-	NUMHEX = malloc(alfa);
-	for (I = 0; NUM != 0; I++)
-	{
-		COPY = NUM % 16;
-		if (COPY < 10)
-			NUMHEX[I] = COPY + '0';
-		else
-			NUMHEX[J] = COPY - 10 + 'A';
-		NUM = NUM / 16;
-	}
-	for (J = I - 1; J >= 0; J--)
-		_putchar(NUMHEX[J]);
-	free(NUMHEX);
-	return (alfa);
+	return (print_hex_base(arg, 'a'));
 }
 
+/**
+ * print_HEX - prints a hexadecimal in upper case
+ * @arg: list that contains hexadecimal to print
+ * Return: number of digits printed
+ */
+
+int print_HEX(va_list arg)
+{
+	return (print_hex_base(arg, 'A'));
+}

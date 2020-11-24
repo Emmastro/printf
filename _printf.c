@@ -21,6 +21,9 @@ int printIdentifiers(char next, va_list arg)
 		{"i", print_int},
 		{"u", print_unsigned},
 		{"b", print_unsignedToBinary},
+		{"o", print_oct},
+		{"x", print_hex},
+		{"X", print_HEX},
 		{NULL, NULL}
 	};
 
