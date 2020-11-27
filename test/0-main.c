@@ -47,7 +47,8 @@ int main(void)
 	_printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
 	_printf("%u\n", UINT_MAX);
 	printf("%u\n", UINT_MAX);
-	 _printf("%S\n", "Holberton\nSchool");
-
+	 _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+	 printf("%d\n", _printf("%u", 0));
+	 printf("%d\n", printf("%u", 0));
 	return (0);
 }
